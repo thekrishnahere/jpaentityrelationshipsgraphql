@@ -7,6 +7,11 @@ import lombok.NoArgsConstructor;
 
 import java.util.Set;
 
+/**
+ * author gql.
+ *
+ * @author saikrishna
+ */
 @Data
 @Builder
 @AllArgsConstructor
@@ -14,19 +19,22 @@ import java.util.Set;
 public class Author {
 
   /**
-   * ID.
+   * id.
    */
   private String id;
 
   /**
-   * Author Name.
+   * author name.
    */
   private String name;
 
   /**
-   * Books.
+   * books.
    */
   private Set<Book> books;
 
+  /**
+   * ring old id.
+   */
   private Integer ringOldId;
 }

@@ -7,6 +7,11 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.function.Function;
 
+/**
+ * author dto to gql mapper.
+ *
+ * @author saikrishna
+ */
 public class AuthorDtoGqlMapper implements Function<AuthorDto, Author> {
   @Override
   public Author apply(AuthorDto authorDto) {

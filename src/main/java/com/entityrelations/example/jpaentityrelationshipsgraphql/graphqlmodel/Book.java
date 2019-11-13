@@ -7,6 +7,11 @@ import lombok.NoArgsConstructor;
 
 import java.util.Set;
 
+/**
+ * book.
+ *
+ * @author saikrishna
+ */
 @Data
 @Builder
 @AllArgsConstructor
@@ -14,24 +19,27 @@ import java.util.Set;
 public class Book {
 
   /**
-   * ID.
+   * id.
    */
   private String id;
 
   /**
-   * Book Name.
+   * book name.
    */
   private String name;
 
   /**
-   * Book Author.
+   * book author.
    */
   private Set<Author> authors;
 
   /**
-   * Book Category.
+   * book category.
    */
   private String category;
 
+  /**
+   * isbn.
+   */
   private Integer isbn;
 }

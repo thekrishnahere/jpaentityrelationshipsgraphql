@@ -32,38 +32,43 @@ public class BookDataService {
   @Autowired
   private BookRepository bookRepository;
 
+  /**
+   * author repository.
+   */
   @Autowired
   private AuthorRepository authorRepository;
 
+  /**
+   * create book.
+   *
+   * @param book book
+   * @return book
+   */
   public Book createBook(final Book book) {
-//    book.getAuthorSet().stream().forEach(author -> {
-//      author.addBook(book);
-//    });
-//    bookRepository.save(book);
     LOGGER.debug("Book Entity input: {}", book);
-//    Set<Author> authors =
-//        book.getAuthorSet().stream().map(author -> {
-//          if (Optional.ofNullable(author.getId()).isPresent()) {
-//            Author resultAuthor = authorRepository.getOne(author.getId());
-//            LOGGER.debug("Author by id : {}", resultAuthor.getId());
-//            return resultAuthor;
-//          }
-//          return author;
-//        }).collect(Collectors.toSet());
-//    book.setAuthorSet(authors);
     final Book resultBook = bookRepository.save(book);
     LOGGER.debug("result book: {}", resultBook);
     final Optional<Book> updatedResultBook = bookRepository.findById(resultBook.getId());
-//    LOGGER.debug("Updated Result Book: {}", updatedResultBook);
-    return updatedResultBook.get();
+    return updatedResultBook.orElse(new Book());
   }
 
+  /**
+   * get book by id.
+   *
+   * @param bookId book id
+   * @return book
+   */
   public Book getBook(final String bookId) {
     final Optional<Book> resultBook = bookRepository.findById(bookId);
     LOGGER.debug("result book by id: {}", resultBook.get());
     return resultBook.orElse(new Book());
   }
 
+  /**
+   * get all books.
+   *
+   * @return set of books
+   */
   public Set<Book> getBooks() {
     return new HashSet<>(bookRepository.findAll());
   }

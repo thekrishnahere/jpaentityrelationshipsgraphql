@@ -55,6 +55,12 @@ public class AuthorDataService {
     return authorOpt.orElse(new Author());
   }
 
+  /**
+   * create or update author.
+   *
+   * @param author author
+   * @return author
+   */
   public Author createOrUpdateAuthor(Author author) {
     final Author resultAuthor = authorRepository.save(author);
     LOGGER.debug("result author: {}", resultAuthor);

@@ -19,10 +19,14 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+/**
+ * book.
+ *
+ * @author saikrishna
+ */
 @Entity
 @Data
 @ToString
-//@EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "book")
@@ -47,7 +51,6 @@ public class Book {
   @Column(name = "name")
   private String name;
 
-  //  @JsonManagedReference
   @ManyToMany(cascade =
       {
           CascadeType.MERGE,
@@ -55,8 +58,7 @@ public class Book {
       }
       , fetch = FetchType.EAGER
   )
-//  @JoinTable(name = "authorbooks", joinColumns = {@JoinColumn(name = "book", referencedColumnName
-//      = "book_id")},
+//  @JoinTable(name = "authorbooks", joinColumns = {@JoinColumn(name = "book", referencedColumnName = "book_id")},
 //      inverseJoinColumns = {@JoinColumn(name = "author", referencedColumnName = "author_id")})
   private Set<Author> authorSet = new HashSet<>(0);
 

@@ -5,24 +5,32 @@ import lombok.Data;
 
 import java.util.Set;
 
+/**
+ * author dto.
+ *
+ * @author saikrishna
+ */
 @Data
 @Builder
 public class AuthorDto {
 
   /**
-   * ID.
+   * id.
    */
   private String id;
 
   /**
-   * Author Name.
+   * author name.
    */
   private String name;
 
+  /**
+   * ring old id.
+   */
   private Integer ringOldId;
 
   /**
-   * Books.
+   * books.
    */
   private Set<BookDto> bookDtoSet;
 }

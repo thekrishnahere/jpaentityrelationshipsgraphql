@@ -5,28 +5,37 @@ import lombok.Data;
 
 import java.util.Set;
 
+/**
+ * book dto.
+ *
+ * @author saikrishna
+ */
 @Data
 @Builder
 public class BookDto {
+
   /**
-   * ID.
+   * id.
    */
   private String id;
 
   /**
-   * Book Name.
+   * book name.
    */
   private String name;
 
+  /**
+   * isbn.
+   */
   private Integer isbn;
 
   /**
-   * Book Author.
+   * authors.
    */
   private Set<AuthorDto> authorDtoSet;
 
   /**
-   * Book Category.
+   * book category.
    */
   private String category;
 }

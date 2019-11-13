@@ -7,6 +7,11 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.function.Function;
 
+/**
+ * author dto to entity mapper.
+ *
+ * @author saikrishna
+ */
 public class AuthorDtoEntityMapper implements Function<AuthorDto, Author> {
 
   @Override

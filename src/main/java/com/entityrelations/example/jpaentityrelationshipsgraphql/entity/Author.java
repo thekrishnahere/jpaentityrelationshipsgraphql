@@ -20,10 +20,14 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.NaturalId;
 
+/**
+ * author.
+ *
+ * @author saikrishna
+ */
 @Entity
 @Data
 @ToString
-//@EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "author")
@@ -42,7 +46,6 @@ public class Author {
   @Column(name = "name")
   private String name;
 
-  //  @JsonBackReference
   @ManyToMany(cascade =
       {
           CascadeType.MERGE,
