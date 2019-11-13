@@ -1,0 +1,43 @@
+input BookInput {
+    id: ID
+    name: String!
+    category: String!
+    isbn: Int!
+    authors: [AuthorInput]
+}
+
+input AuthorInput {
+    id: ID
+    name: String!
+    ringOldId: Int!
+    books: [BookInput]
+}
+
+type Book {
+    id: ID!
+    name: String!
+    isbn: Int!
+    authors: [Author]
+    category: String!
+}
+
+type Author {
+    id: ID!
+    ringOldId: Int!
+    name: String!
+    books: [Book]
+}
+
+type Query {
+    books(category: String):[Book]!
+    book(id: ID): Book!
+    author(id: ID):  Author!
+    authors: [Author]!
+}
+
+type Mutation {
+    createBook(bookInput: BookInput): Book!
+    createAuthor(authorInput: AuthorInput): Author!
+    addAuthor(bookId: ID!, authorInput: AuthorInput!): Book!
+    addBook(authorId: ID!, bookInput: BookInput!): Author!
+}

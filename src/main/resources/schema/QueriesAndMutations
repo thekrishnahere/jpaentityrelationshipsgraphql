@@ -1,0 +1,48 @@
+mutation {
+  createBook(bookInput: {name: "Maha Bharatha", category: "Epic", authors: [{id: "67fad9e9-f817-11e9-b0ab-c85b76dc51cf", name: "Hari Chandana"}]}) {
+    id
+    name
+    authors {
+      id
+      name
+    }
+  }
+}
+
+mutation {
+  createAuthor(authorInput: {id: "67fad9e9-f817-11e9-b0ab-c85b76dc51cf", name: "Hari Chandana", books: [{id: "32676765-a8c7-4eee-bcb4-78735e9cb64b", name: "Maha Bharatha", category: "Epic"}]}) {
+    id
+    name
+    books {
+      id
+      name
+      category
+    }
+  }
+}
+
+{
+  authors {
+    id
+    name
+    books {
+      id
+      name
+      category
+    }
+  }
+}
+
+
+{
+  books {
+    id
+    name
+    category
+    authors {
+      id
+      name
+    }
+  }
+}
+
