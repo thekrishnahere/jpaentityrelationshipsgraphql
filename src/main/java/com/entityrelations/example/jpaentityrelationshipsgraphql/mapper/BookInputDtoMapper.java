@@ -7,10 +7,15 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.function.Function;
 
+/**
+ * book input to book dto mapper.
+ *
+ * @author saikrishna
+ */
 public class BookInputDtoMapper implements Function<BookInput, BookDto> {
 
   @Override
-  public BookDto apply(BookInput bookInput) {
+  public BookDto apply(final BookInput bookInput) {
     return BookDto.builder().id(bookInput.getId()).name(bookInput.getName()).isbn(bookInput.getIsbn()).category(bookInput.getCategory()).authorDtoSet(Optional.ofNullable(bookInput.getAuthors()).isPresent() ? new AuthorInputSetDtoMapper().apply(bookInput.getAuthors()) : new HashSet<>()).build();
   }
 }

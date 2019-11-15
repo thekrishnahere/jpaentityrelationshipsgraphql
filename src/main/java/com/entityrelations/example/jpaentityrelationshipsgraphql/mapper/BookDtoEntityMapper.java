@@ -7,9 +7,14 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.function.Function;
 
+/**
+ * book dto to book entity mapper.
+ *
+ * @author saikrishna
+ */
 public class BookDtoEntityMapper implements Function<BookDto, Book> {
   @Override
-  public Book apply(BookDto bookDto) {
+  public Book apply(final BookDto bookDto) {
     Book book = new Book();
     book.setId(bookDto.getId());
     book.setName(bookDto.getName());

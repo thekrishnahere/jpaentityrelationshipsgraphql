@@ -14,7 +14,7 @@ import java.util.function.Function;
  */
 public class AuthorDtoGqlMapper implements Function<AuthorDto, Author> {
   @Override
-  public Author apply(AuthorDto authorDto) {
+  public Author apply(final AuthorDto authorDto) {
     return Author.builder().id(authorDto.getId()).ringOldId(authorDto.getRingOldId()).name(authorDto.getName()).books(Optional.ofNullable(authorDto.getBookDtoSet()).isPresent() ? new BookDtoSetGqlMapper().apply(authorDto.getBookDtoSet()) : new HashSet<>()).build();
   }
 }

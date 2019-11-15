@@ -7,10 +7,15 @@ import com.entityrelations.example.jpaentityrelationshipsgraphql.entity.Author;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+/**
+ * author entity to author dto mapper.
+ *
+ * @author saikrishna
+ */
 public class AuthorEntityDtoMapper implements Function<Author, AuthorDto> {
 
   @Override
-  public AuthorDto apply(Author author) {
+  public AuthorDto apply(final Author author) {
     return AuthorDto.builder().id(author.getId()).name(author.getName())
         .ringOldId(author.getRingOldId())
         .bookDtoSet(author.getBookSet().stream().map(book -> BookDto.builder().isbn(book.getIsbn()).id(book.getId()).name(book.getName()).category(book.getCategory()).build()).collect(Collectors.toSet())

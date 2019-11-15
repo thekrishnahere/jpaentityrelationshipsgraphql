@@ -7,10 +7,15 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.function.Function;
 
+/**
+ * author input to author dto mapper.
+ *
+ * @author saikrishna
+ */
 public class AuthorInputDtoMapper implements Function<AuthorInput, AuthorDto> {
 
   @Override
-  public AuthorDto apply(AuthorInput authorInput) {
+  public AuthorDto apply(final AuthorInput authorInput) {
     return AuthorDto.builder().id(authorInput.getId()).name(authorInput.getName()).bookDtoSet(Optional.ofNullable(authorInput.getBooks()).isPresent() ? new BookInputSetDtoMapper().apply(authorInput.getBooks()) : new HashSet<>()).ringOldId(authorInput.getRingOldId()).build();
   }
 }

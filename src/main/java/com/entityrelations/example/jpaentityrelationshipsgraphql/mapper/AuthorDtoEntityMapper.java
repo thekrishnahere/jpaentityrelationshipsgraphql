@@ -15,7 +15,7 @@ import java.util.function.Function;
 public class AuthorDtoEntityMapper implements Function<AuthorDto, Author> {
 
   @Override
-  public Author apply(AuthorDto authorDto) {
+  public Author apply(final AuthorDto authorDto) {
     Author author = new Author();
     author.setId(authorDto.getId());
     author.setName(authorDto.getName());

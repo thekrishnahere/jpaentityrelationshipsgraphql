@@ -7,9 +7,14 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.function.Function;
 
+/**
+ * author gql to author dto mapper.
+ *
+ * @author saikrishna
+ */
 public class AuthorGqlDtoMapper implements Function<Author, AuthorDto> {
   @Override
-  public AuthorDto apply(Author author) {
+  public AuthorDto apply(final Author author) {
     return AuthorDto.builder().id(author.getId()).ringOldId(author.getRingOldId()).name(author.getName()).bookDtoSet(Optional.ofNullable(author.getBooks()).isPresent() ? new BookGqlSetDtoMapper().apply(author.getBooks()) : new HashSet<>()).build();
   }
 }
